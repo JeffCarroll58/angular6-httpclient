@@ -1,0 +1,40 @@
+<div>
+<h2 class="text-center">Product List</h2>
+<div>
+  <button class="btn btn-success m-2" (click)="addProduct()">
+    Add
+  </button>
+
+</div>
+<div class="spacer-10"></div>
+
+<div>
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Product Name</th>
+      <th>Product Description</th>
+      <th>Product Price</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of products">
+        <td>{{ p.id }}</td>
+        <td>{{ p.prod_name }}</td>
+        <td>{{ p.prod_desc }}</td>
+        <td>{{ p.prod_price }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="editProduct(p.id) ">Edit</button>
+        </td>
+        <td>
+          <button class="btn btn-danger ml-2" (click)="deleteProduct(p.id) ">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>

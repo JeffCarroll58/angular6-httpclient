@@ -1,0 +1,56 @@
+
+  <form class="form-horizontal" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+    <fieldset style="width: 30em">
+      <legend>Product Edit</legend>
+
+      <div class="form-group row required">
+        <label for="prod_name" class="control-label col-3">Name:</label>
+        <input formControlName="prod_name" placeholder="Product Name" class="form-control col-8" id="prod_name" [ngClass]="{ 'is-invalid': (f.prod_name.touched || submitted) && f.prod_name.errors }">
+      </div>
+
+      <div  class="pb-3" *ngIf="(f.prod_name.touched || submitted) && f.prod_name.errors">
+        <div class="text-danger" *ngIf="f.prod_name.errors.required">
+          Product Name is empty.
+        </div>
+      </div>
+
+    <div class="form-group row required">
+        <label for="prod_desc" class="control-label col-3">Description:</label>
+        <input formControlName="prod_desc" placeholder="Product Description" class="form-control col-8" id="prod_desc" [ngClass]="{ 'is-invalid': (f.prod_desc.touched || submitted) &&  f.prod_desc.errors }">
+      </div>
+
+      <div  class="pb-3" *ngIf="(f.prod_desc.touched || submitted) && f.prod_desc.errors">
+        <div class="text-danger" *ngIf="f.prod_desc.errors.required">
+          Product Description is empty.
+        </div>
+      </div>
+
+      <div class="form-group row required">
+        <label for="prod_price" class="control-label col-3">Price:</label>
+        <input formControlName="prod_price" placeholder="Product Price" class="form-control col-8" id="prod_price" [ngClass]="{ 'is-invalid': (f.prod_price.touched || submitted) && f.prod_price.errors }">
+      </div>
+
+      <div class="pb-3" *ngIf="(f.prod_price.touched || submitted) && f.prod_price.errors">
+        <div class="text-danger" *ngIf="f.prod_price.errors.pattern">
+          Product Price must be numeric.
+        </div>
+      </div>
+
+      <div class="pb-3" *ngIf="(f.prod_price.touched || submitted) && f.prod_price.errors">
+        <div class="text-danger" *ngIf="f.prod_price.errors.required">
+          Product Price is empty.
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="col 12">
+        <!--<button [disabled]="editForm.invalid" class="btn btn-success">Submit</button>-->
+        <button class="btn btn-success">Submit</button>
+        <button class="btn btn-danger ml-2 " (click)="onCancel()">Cancel</button>
+        <span class="text-danger float-right"><strong>*required</strong></span>
+      </div>
+    </div>
+    </fieldset>
+
+  </form>

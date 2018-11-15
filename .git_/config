@@ -1,0 +1,16 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "master"]
+	url = https://github.com/JeffCarroll58/angular6-httpclient.git
+	fetch = +refs/heads/*:refs/remotes/master/*
+[remote "github"]
+	url = https://github.com/JeffCarroll58/angular6-httpclient.git
+	fetch = +refs/heads/*:refs/remotes/github/*
+[branch "master"]
+	remote = github
+	merge = refs/heads/master
